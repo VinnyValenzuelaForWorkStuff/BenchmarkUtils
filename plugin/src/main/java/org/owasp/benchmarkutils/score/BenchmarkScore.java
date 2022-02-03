@@ -104,6 +104,7 @@ import org.owasp.benchmarkutils.score.parsers.SemgrepReader;
 import org.owasp.benchmarkutils.score.parsers.ShiftLeftReader;
 import org.owasp.benchmarkutils.score.parsers.ShiftLeftScanReader;
 import org.owasp.benchmarkutils.score.parsers.SnappyTickReader;
+import org.owasp.benchmarkutils.score.parsers.SnykCodejsonReader;
 import org.owasp.benchmarkutils.score.parsers.SonarQubeJsonReader;
 import org.owasp.benchmarkutils.score.parsers.SonarQubeReader;
 import org.owasp.benchmarkutils.score.parsers.SourceMeterReader;
@@ -956,6 +957,8 @@ public class BenchmarkScore extends AbstractMojo {
                     tr = WapitiJsonReader.parse(jsonObj);
                 } else if (ZapJsonReader.isZapReport(jsonObj)) {
                     tr = new ZapJsonReader().parse(jsonObj);
+                } else if (SnykCodejsonReader.isSnykReport(jsonObj)) {
+                    tr = new SnykCodejsonReader().parse(jsonObj);
                 } else if (NJSScanReader.isNJSScanReport(jsonObj)) {
                     tr = NJSScanReader.parse(jsonObj);
 

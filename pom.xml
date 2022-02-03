@@ -3,7 +3,7 @@
     <groupId>org.owasp</groupId>
     <artifactId>benchmarkutils-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.3</version>
+    <version>1.4</version>
 
     <name>OWASP Benchmark Utilities Parent POM</name>
     <description>OWASP Benchmark is one or more test suites designed to evaluate the accuracy, coverage, and speed of automated software vulnerability detection tools. This library provides classes used by other Benchmark projects, such as the benchmarkutils-maven-plugin, and Benchmark for Java.</description>
@@ -130,7 +130,7 @@
                         <configuration>
                             <rules>
                                 <enforceBytecodeVersion>
-                                    <maxJdkVersion>1.8</maxJdkVersion>
+                                    <maxJdkVersion>${jdk}</maxJdkVersion>
                                     <message>Dependencies shouldn't require Java 9+.</message>
                                 </enforceBytecodeVersion>
                             </rules>
@@ -145,7 +145,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>1.8</version>
+                                    <version>${jdk}</version>
                                     <message>BenchmarkUtls is currently written to support Java 8.</message>
                                 </requireJavaVersion>
                             </rules>
@@ -331,13 +331,13 @@
     </reporting>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <jdk>1.8</jdk>
+        <maven.compiler.source>${jdk}</maven.compiler.source>
+        <maven.compiler.target>${jdk}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <log.directory>${project.build.directory}/log</log.directory>
-
-        <version.benchmarkutils>1.3</version.benchmarkutils>
+        <version.benchmarkutils>1.4</version.benchmarkutils>
     </properties>
 
 </project>
